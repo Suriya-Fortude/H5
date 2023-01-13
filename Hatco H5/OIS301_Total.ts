@@ -1,4 +1,4 @@
-﻿/**
+/**
 ** Dispaly Quantity Total for the selected lines in List View
 **
 ** Developed By: SuriyaN@fortude.co
@@ -32,7 +32,7 @@ class OIS301_Total { /** * Script initialization function. */
     public run(): void {
 
         const Label = new LabelElement();
-        Label.Name = "QuantityTotal";
+        Label.Name = "OIS301_QuantityTotal";
         Label.Value = "Total Quantity = 0.00";
         Label.Position = new PositionElement();
         Label.Position.Top = 3;
@@ -41,7 +41,7 @@ class OIS301_Total { /** * Script initialization function. */
         const controller = this.controller;
         const label = this.contentElement.AddElement(Label);
         const LabelNet = new LabelElement();
-        LabelNet.Name = "NetTotalValue";
+        LabelNet.Name = "OIS301_NetTotalValue";
         LabelNet.Value = "Net Amount = 0.00";
         LabelNet.Position = new PositionElement();
         LabelNet.Position.Top = 3;
@@ -81,16 +81,16 @@ class OIS301_Total { /** * Script initialization function. */
             }
             totalQuantity = totalQuantity || 0;
             totalAmount = totalAmount || 0;
-            document.getElementById("QuantityTotal").innerHTML = "Total Quantity: " + Math.round(totalQuantity * 100) / 100;
+            document.getElementById("OIS301_QuantityTotal").innerHTML = "Total Quantity: " + Math.round(totalQuantity * 100) / 100;
             selectedCount = Currentlyselected;
-            document.getElementById("NetTotalValue").innerHTML = "Net Amount: " + Math.round(totalAmount * 100) / 100;
+            document.getElementById("OIS301_NetTotalValue").innerHTML = "Net Amount: " + Math.round(totalAmount * 100) / 100;
         } else {
             let lineQuantity = ListControl.ListView.GetValueByColumnName("ORQA");
             let lineamount = ListControl.ListView.GetValueByColumnName("LNAM");
             if (lineQuantity.length > 0 || lineamount.length > 0) {
 
-                document.getElementById("QuantityTotal").innerHTML = "Total Quantity: " + (lineQuantity[0] || 0);
-                document.getElementById("NetTotalValue").innerHTML = "Net Amount: " + (lineamount[0] || 0);
+                document.getElementById("OIS301_QuantityTotal").innerHTML = "Total Quantity: " + (lineQuantity[0] || 0);
+                document.getElementById("OIS301_NetTotalValue").innerHTML = "Net Amount: " + (lineamount[0] || 0);
             }
 
 
