@@ -1,4 +1,4 @@
-﻿class MWS410_AddColoumns { /** * Script initialization function. */
+class MWS410_AddColoumns { /** * Script initialization function. */
     private controller: IInstanceController;
     private log: IScriptLog;
     private args: string;
@@ -14,7 +14,7 @@
     private al: Array<string> = [];
     private locations: Array<string> = [];
     private allocatable: boolean = false;
-    private CONO = "";
+    private CONO = 0;
     private DIVI = "";
 
     constructor(scriptArgs: IScriptArgs) {
@@ -29,7 +29,7 @@
         this.ColumnName = ["TOTAL AMOUNT", "MFG"];
         this.M3FieldsNames = ["V_TOTA", "MFG"];
         var RIDN = ScriptUtil.GetFieldValue("WWRIDN");
-        this.CONO = ScriptUtil.GetFieldValue("CONO")
+        this.CONO = Number(ScriptUtil.GetFieldValue("CONO"))
         this.DIVI = ScriptUtil.GetFieldValue("DIVI")
 
         this.getLocations(RIDN);
@@ -222,7 +222,7 @@
 
         var records = `{
         "program": "CMS100MI",
-        "cono": "`+this.CONO+`",
+        "cono": `+this.CONO+`,
             "divi": "`+ this.DIVI +`",
                 "excludeEmptyValues": false,
                     "rightTrim": true,
